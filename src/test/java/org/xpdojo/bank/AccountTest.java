@@ -10,9 +10,17 @@ public class AccountTest {
 
     @Test
 //	@Disabled
-    public void depositAnAmountToIncreaseTheBalance() {
-        // assertThat("your first test").isBlank();
+    public void initAmount() {
+        // arrange
+        Account account = new Account(100);
 
+        //assert (check)
+        assertEquals(account.balance.intValue(), 100);
+    }
+
+    @Test
+//	@Disabled
+    public void depositAnAmountToIncreaseTheBalance() {
         // arrange
         Account account = new Account();
 
@@ -23,4 +31,19 @@ public class AccountTest {
         assertEquals(account.balance.intValue(), 100);
 
     }
+
+    @Test
+//	@Disabled
+    public void withdrawAnAmountToDecreaseTheBalance() {
+        // arrange
+        Account account = new Account(100);
+
+        // act (add money
+        account.withdraw(60);
+
+        //assert (check)
+        assertEquals(account.balance.intValue(), 40);
+
+    }
+
 }
