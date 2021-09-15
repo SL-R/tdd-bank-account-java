@@ -2,21 +2,21 @@ package org.xpdojo.bank;
 
 public class Account {
 
-    public Integer balance;
+    public Money balance;
 
     public Account () {
-        balance = 0;
+        balance = new Money();
     }
 
-    public Account (int amount) {
-        balance = amount;
+    public Account (Money money) {
+        balance = money;
     }
 
-    public void deposit (int amount) {
-        balance += amount;
+    public void deposit (Money money) {
+        balance = balance.add(money);
     }
 
-    public void withdraw (int amount) {
-        balance -= amount;
+    public void withdraw (Money money) {
+        balance = balance.subtract(money);
     }
 }

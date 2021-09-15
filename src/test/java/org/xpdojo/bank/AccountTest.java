@@ -12,10 +12,10 @@ public class AccountTest {
 //	@Disabled
     public void initAmount() {
         // arrange
-        Account account = new Account(100);
+        Account account = new Account(new Money(100));
 
         //assert (check)
-        assertEquals(account.balance.intValue(), 100);
+        assertEquals(account.balance, new Money(100));
     }
 
     @Test
@@ -25,10 +25,10 @@ public class AccountTest {
         Account account = new Account();
 
         // act (add money
-        account.deposit(100);
+        account.deposit(new Money(100));
 
         //assert (check)
-        assertEquals(account.balance.intValue(), 100);
+        assertEquals(account.balance, new Money(100));
 
     }
 
@@ -36,13 +36,13 @@ public class AccountTest {
 //	@Disabled
     public void withdrawAnAmountToDecreaseTheBalance() {
         // arrange
-        Account account = new Account(100);
+        Account account = new Account(new Money(100));
 
         // act (add money
-        account.withdraw(60);
+        account.withdraw(new Money(60));
 
         //assert (check)
-        assertEquals(account.balance.intValue(), 40);
+        assertEquals(account.balance, new Money(40));
 
     }
 

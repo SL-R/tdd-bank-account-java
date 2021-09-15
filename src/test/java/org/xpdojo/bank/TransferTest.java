@@ -10,15 +10,15 @@ public class TransferTest {
 //	@Disabled
     public void transferDepositFromOneAccountToAnother() {
         // arrange
-        Account accountA = new Account(100);
-        Account accountB = new Account(200);
+        Account accountA = new Account( new Money (100));
+        Account accountB = new Account(new Money(200));
 
         // act (add money
-        Transfer.transfer(accountA, accountB, 50);
+        Transfer.transfer(accountA, accountB, new Money(50));
 
         //assert (check)
-        assertEquals(accountA.balance.intValue(), 50);
-        assertEquals(accountB.balance.intValue(), 250);
+        assertEquals(accountA.balance, new Money(50));
+        assertEquals(accountB.balance, new Money(250));
 
     }
 

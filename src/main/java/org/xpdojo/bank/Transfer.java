@@ -2,8 +2,8 @@ package org.xpdojo.bank;
 
 public class Transfer {
 
-    public static void transfer (Account accountA, Account accountB, int amount) {
-        accountA.withdraw(amount);
-        accountB.deposit (amount);
+    public static void transfer (Account accountA, Account accountB, Money money) {
+        accountA.withdraw(money);
+        accountB.deposit (money);
     }
 }
