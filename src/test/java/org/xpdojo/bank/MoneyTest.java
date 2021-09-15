@@ -75,5 +75,17 @@ public class MoneyTest {
 
     }
 
+    @Test
+//	@Disabled
+    public void testEqual() {
+        // arrange
+        Money money = new Money(100);
+        //assert (check)
+        assertFalse(money.equals(null));
+        assertFalse(money.equals(new String()));
+        assertFalse(money.equals(new Money(200)));
+        assertTrue(money.equals(new Money(100)));
+    }
+
 
 }
