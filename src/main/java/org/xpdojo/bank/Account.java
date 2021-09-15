@@ -16,7 +16,11 @@ public class Account {
         balance = balance.add(money);
     }
 
-    public void withdraw (Money money) {
-        balance = balance.subtract(money);
+    public boolean withdraw (Money money) {
+        Money newBalance = balance.subtract(money);
+        if (newBalance.isBelowZero())
+            return false;
+        balance = newBalance;
+        return true;
     }
 }

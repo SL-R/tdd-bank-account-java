@@ -28,6 +28,10 @@ public class Money {
         return new Money(amount - money.amount);
     }
 
+    public boolean isBelowZero() {
+        return amount < 0;
+    }
+
     @Override
     public boolean equals(Object obj) {
         return (obj != null) && (obj instanceof Money) && (amount == ((Money)obj).amount);

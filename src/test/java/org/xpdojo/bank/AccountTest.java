@@ -5,6 +5,7 @@ import static org.hamcrest.Matchers.is;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class AccountTest {
 
@@ -43,6 +44,35 @@ public class AccountTest {
 
         //assert (check)
         assertEquals(account.balance, new Money(40));
+
+    }
+
+    @Test
+//	@Disabled
+    public void decreaseAmountAboveZero() {
+        // arrange
+        Account account = new Account(new Money(100));
+
+        // act (add money
+        account.withdraw(new Money(40));
+
+        //assert (check)
+        assertEquals(account.balance, new Money(60));
+
+    }
+
+    @Test
+//	@Disabled
+    public void decreaseAmountBelowZero() {
+        // arrange
+        Account account = new Account(new Money(100));
+
+        // act (add money
+        boolean ok = account.withdraw(new Money(110));
+
+        assertFalse(ok);
+        //assert (check)
+        assertEquals(account.balance, new Money(100));
 
     }
 

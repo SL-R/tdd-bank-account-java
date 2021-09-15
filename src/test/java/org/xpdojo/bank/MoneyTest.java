@@ -2,7 +2,7 @@ package org.xpdojo.bank;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MoneyTest {
 
@@ -44,7 +44,7 @@ public class MoneyTest {
 
     @Test
 //	@Disabled
-    public void AddMoney() {
+    public void addMoney() {
         // arrange
         Money moneyA = new Money(100);
         Money moneyB = new Money(150);
@@ -52,6 +52,26 @@ public class MoneyTest {
         Money moneyC = moneyA.add(moneyB);
         //assert (check)
         assertEquals(moneyC.amount, 250);
+
+    }
+
+    @Test
+//	@Disabled
+    public void aboveZero() {
+        // arrange
+        Money money = new Money(100);
+        //assert (check)
+        assertFalse(money.isBelowZero());
+
+    }
+
+    @Test
+//	@Disabled
+    public void belowZero() {
+        // arrange
+        Money money = new Money(-100);
+        //assert (check)
+        assertTrue(money.isBelowZero());
 
     }
 
